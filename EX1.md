@@ -1,61 +1,75 @@
 # Ex.No:1
-# Ex.Name: Write a C++ function void addPolynomials(Node *head1,Node *head2) to add and display the sum of two polynomial expressions ( 5x^2 4x^1 and 6x^2 4x^1) using Linked list concept.
+# Ex.Name: Write a CPP Program to REMOVE a Node from the Doubly Linked List Using STL and Display the same.
 
 ## Date: 11/09/2025
 ## Aim:
-To write a C++ function void addPolynomials(Node *head1, Node *head2) to add and display the sum of two polynomial expressions using the linked list concept.
+To write a C++ program to remove a node from a doubly linked list using STL and display the updated list.
 
 ## Algorithm:
 ```
 1. Start the program.
 
-2. Create a structure Node with members coeff, pow, and a pointer next.
+2. Include the header file <list> to use the STL doubly linked list container.
 
-3. Traverse both polynomial linked lists head1 and head2 simultaneously.
+3. Create a list<int> to represent the doubly linked list.
 
-4. Compare the powers of the current terms of both polynomials:
+4. Insert elements into the list using push_back().
 
-  If powers are equal, add their coefficients and insert into the result list.
-  
-  If one power is greater, insert that term into the result list.
-  
-  Move the corresponding pointer forward.
+5. Display the elements of the list using a range-based for loop.
 
-5. Continue the process until both lists are fully traversed.
+6. Get the value of the node to be removed from the user.
 
-6. Display the resultant polynomial by traversing the result list.
+7. Use the remove() function to delete all occurrences of the specified value from the list.
 
-7. Stop the program.
+8.  Display the updated list after deletion.
+
+9. Stop the program.
 ```
 
 ## Program:
 ```cpp
-void addPolynomials(Node *head1,Node *head2)
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+int main() 
 {
-    if(head1==NULL &&head2==NULL)
+    list<int> gqlist1;
+    int input, elementToRemove;
+
+    for (int i = 0; i < 5; ++i) 
     {
-        return;
+        cin >> input;
+        gqlist1.push_back(input);
     }
-    else if(head1->power ==head2->power)
+
+    cout << "List before removing elements: ";
+    
+    for (int value : gqlist1)
     {
-        cout << " " << head1->coeff +  head2->coeff <<"x^" << head1->power << " ";
-        addPolynomials(head1->next,head2->next);
+        cout << value << " ";
     }
-    else if(head1->power > head2->power)
+    cout << endl;
+
+    cin >> elementToRemove;
+
+    gqlist1.remove(elementToRemove);
+
+    cout << "List after removing elements: ";
+    
+    for (int value : gqlist1) 
     {
-        cout << " " << head1->coeff <<"x^" << head1->power << " ";
-        addPolynomials(head1->next, head2);
+        cout << value << " ";
     }
-    else
-    {
-        cout << " " << head2->coeff <<"x^" << head2->power << " ";
-        addPolynomials(head1, head2->next);
-    }
+    cout << endl;
+
+    return 0;
 }
 ```
 ## Output:
-<img width="850" height="271" alt="image" src="https://github.com/user-attachments/assets/dca856ec-9391-4831-a0e9-d15f29544f27" />
+<img width="1004" height="297" alt="image" src="https://github.com/user-attachments/assets/5bf9d8bf-2ad4-4e5f-aa86-c0b77c89474a" />
 
 
 ## Result:
-The program successfully adds two polynomial expressions using the linked list concept and displays their sum.
+The program successfully removes a specified node from the doubly linked list using STL and displays the updated list.
